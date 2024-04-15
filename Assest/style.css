@@ -1,6 +1,15 @@
-Body{
-
+Body {
+    background-color: lightgray;
 }
+
+.card {
+    display: wrap;
+    margin: 0 auto;
+    border: 5px solid purple;
+    border-radius: 20px;
+  }
+  
+
 /* right now this is for the header weather dashboard */
 h1 {
     display: flex;
@@ -10,30 +19,28 @@ h1 {
 }
 
 h2 {
-    position: relative;
-    display: flex;
-   left: 40px;
+ 
 }
 
 h3 {
-    
+   
 }
 
 /* this is my search bar */
 #form {
-flex-wrap: wrap;
-flex-direction: column;
-display: flex;
-width: 10px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    display: flex;
+    width: 10px;
 }
 
 /* This is my search bar button */
 button {
     flex-wrap: wrap;
-    background-color: blue;
+    background-color: lightblue;
     margin: 10px;
     width: 250px;
-   border-radius: 5px;
+    border-radius: 5px;
 }
 
 /* This is my red line under the button */
@@ -42,16 +49,32 @@ button {
     width: 250px;
 }
 
-div {
+/* Making the search container decent sizes  */
+.container {
     display: flex;
-    justify-content: space-between;
+    border: 5px solid purple;
+    flex-direction: column;
+    border-radius: 20px;
+    padding-right: 20px;
 }
-
-.container{
-   display: flex;
-   align-items: center;
-}
-
 .container1 {
-    text-align: center;
+  
+    
+}
+
+#search-container {
+    margin: 2px;
+   
+}
+
+#searchResults {
+    margin-top: 20px;
+}
+
+#colorform {
+   border: solid red 1px;
+}
+
+#id {
+    display: flex;
 }

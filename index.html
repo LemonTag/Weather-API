@@ -9,46 +9,46 @@
 </head>
 
 <body>
+
     <!-- made the weather title with h1 -->
     <h1> Weather Dashboard</h1>
     <section>
+        <div class=container1>
+            <div>
+                <h3> Weather info </h3>
+            </div>
+            <div id="searchWeather">
+            </div>
+        </div>
 
         <!-- header for my searh bar -->
         <div class=container>
             <div>
                 <h2> Search for a City </h2>
             </div>
+            <!-- Stack the columns on mobile by making one full-width and the other half-width -->
         </div>
 
-        <div class=container1>
-            <div>
-                <h3> Weather info </h3>
-            </div>
-        </div>
         <!-- this is my search bar -->
         <div class="Search">
             <!-- this is my search bar button -->
             <form id="form">
-                <input type="search" placeholder="Search">
-                <button>Search</button>
+                <div class="search container">
+                    <input type="text" id="searchInput" placeholders="Search">
+                    <button type="submit" id="search">Submit</button>
+                </div>
+                <div id="searchResults"></div>
                 <!-- made this a red line under the search button -->
                 <hr class="line">
             </form>
         </div>
+
+        <div id="searchForecast">
+
+        </div>
     </section>
 
-    <section>
-
-
-    </section>
-
-
-
-
-
-
-
-    <link rel="stylesheet" href="./Assest/script.js">
+    <script src="./Assest/script.js"> </script>
 </body>
 
 </html>
