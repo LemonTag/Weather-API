@@ -7,8 +7,8 @@ Body {
     margin: 0 auto;
     border: 5px solid purple;
     border-radius: 20px;
-  }
-  
+}
+
 
 /* right now this is for the header weather dashboard */
 h1 {
@@ -18,13 +18,9 @@ h1 {
     padding: 20px;
 }
 
-h2 {
- 
-}
+h2 {}
 
-h3 {
-   
-}
+h3 {}
 
 /* this is my search bar */
 #form {
@@ -57,24 +53,37 @@ button {
     border-radius: 20px;
     padding-right: 20px;
 }
-.container1 {
-  
-    
-}
+
+.container1 {}
 
 #search-container {
     margin: 2px;
-   
+
 }
 
 #searchResults {
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 #colorform {
-   border: solid red 1px;
+    border: solid black 1px;
+    max-width: 40rem;
+    min-width: 10rem;
 }
 
 #id {
     display: flex;
+}
+
+
+.historysection {
+    display: flex;
+}
+
+#searchForecast {
+    display: flex;
+    flex-wrap: wrap;
+    gap:1rem;
 }

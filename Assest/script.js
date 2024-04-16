@@ -7,17 +7,16 @@ const citySearch = document.getElementById("searchInput")
 const spySearch = document.getElementById("search")
 const searchWeather = document.getElementById("searchWeather")
 const searchForeCast = document.getElementById("searchForecast")
-
-
-
-
+const historydiv = document.querySelector("#searchResults")
 
 const formSubmitHandler = function (event) {
+
     console.log("testing")
     event.preventDefault();
 
     const city = citySearch.value.trim()
     if (city) {
+        savedCities();
         weatherSearch(city);
         foreCastSearch(city);
         // clears the search bar
@@ -33,7 +32,7 @@ const formSubmitHandler = function (event) {
 }
 const weatherSearch = function (city) {
     console.log("weathersearch")
-    const queryUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherApiKey}`
+    const queryUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${weatherApiKey}`
     // fetch API
     fetch(queryUrl)
         //we are going the run the function for the response
@@ -78,7 +77,7 @@ const displayWeather = function (data) {
 }
 
 const foreCastSearch = function (city) {
-    const queryUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${weatherApiKey}`
+    const queryUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${weatherApiKey}`
     // fetch API
     fetch(queryUrl)
         //we are going the run the function for the response
@@ -101,6 +100,7 @@ const foreCastSearch = function (city) {
 }
 
 
+
 const displayforecast = function (data) {
     for (let i = 0; i <= 39; i += 8) {
         console.log(data);
@@ -120,14 +120,39 @@ const displayforecast = function (data) {
         card.appendChild(humidityEl)
         card.appendChild(windNameEl)
 
-        card.setAttribute("id" , "colorform")
+        card.setAttribute("id", "colorform")
         searchForeCast.appendChild(card)
     }
 }
 
+const savedCities = function () {
+    let historyinput = citySearch.value;
+    let cityhistory = JSON.parse(localStorage.getItem("cityhistory")) || []
+    cityhistory.push(historyinput)
+    localStorage.setItem("cityhistory", JSON.stringify(cityhistory))
+    dispassedbuttons(cityhistory)
+}
 
+const dispassedbuttons = function (cityhistory) {
+    historydiv.innerHTML = ""
 
-const cleardiv = function() {
+    cityhistory.forEach(city => {
+        const historyHButton = document.createElement("button")
+        historyHButton.textContent = city
+        historyHButton.className += "past"
+        historydiv.appendChild(historyHButton)
+
+        historyHButton.addEventListener("click", (event) => {
+            event.preventDefault()
+            let passedCity = historyHButton.textContent
+            weatherSearch(passedCity)
+            foreCastSearch(passedCity)
+        })
+    })
+
+}
+
+const cleardiv = function () {
     searchWeather.innerHTML = ""
     searchForecast.innerHTML = ""
 }
